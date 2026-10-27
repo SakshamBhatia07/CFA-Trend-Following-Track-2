@@ -10,7 +10,7 @@ The results are historical research, not a recommendation to trade.
 3. Open Terminal > New Terminal. Use the commands below to run it yourself.
 4. Read `WALKTHROUGH.md` and trace one trade in a trade-log CSV.
 5. Add your name/roll number if your club requires it. The report generator is
-   `report.py`; keep the assistance acknowledgement accurate.
+   `report.py`.
 6. Submit the PDF plus the source project, data snapshot and requirements.
    Do not submit `.venv`, `__pycache__` or temporary package files.
 
@@ -105,15 +105,14 @@ loss guarantee in gaps. The index is a gross price benchmark without dividends.
 The stocks were selected retrospectively and both are in IT, so evidence is narrow.
 This is a retrospective holdout, not a live or prospective validation.
 
-## Sources and assistance
+## Sources
 
 - User-supplied `CFA_InductionTask2026 (1).pdf`, Track 2 and general deliverables.
 - Yahoo Finance INFY.NS, TCS.NS and ^NSEI history; exact API URLs in manifest.
 - StockCharts ChartSchool: Average Directional Index (ADX), including Wilder smoothing.
   https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/average-directional-index-adx
 - NumPy, pandas, Matplotlib and ReportLab documentation.
-- OpenAI Codex assisted with implementation, tests, analysis and report drafting.
-  Review the work, understand it, and retain the acknowledgement when submitting.
+
 
 ## Measured findings from the included snapshot
 

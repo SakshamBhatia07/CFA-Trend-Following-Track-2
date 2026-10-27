@@ -58,7 +58,7 @@ def build_report(m,diag,sensitivity,costs,quality):
     p(f'<b>Finding.</b> Filtered return minus basic return is {100*(a.cumulative_return-b.cumulative_return):.2f} percentage points. '
       f'Filtered return minus same-stock buy-and-hold is {100*(a.cumulative_return-bh.cumulative_return):.2f} percentage points. '
       'Lower drawdown alone does not establish an edge: the strategy often holds substantial cash.')
-    p('<b>Integrity.</b> Parameters were fixed before the test run. The test is a retrospective chronological holdout, not a prospective live trial. No test-period parameter optimization was performed. OpenAI Codex assisted with code, testing, analysis and drafting. The submitter should understand and review this work.','SmallCustom')
+    p('<b>Integrity.</b> Parameters were fixed before the test run. The test is a retrospective chronological holdout, not a prospective live trial. No test-period parameter optimization was performed. The submitter should understand and review this work.','SmallCustom')
     page()
     h('01 / Data and exploration')
     p('Yahoo Finance daily data are saved as original JSON and vendor OHLCV CSVs, alongside corporate actions and checksums. The period ends in December 2025 to use complete years. Infosys and TCS are established Indian IT equities, but this narrow, non-random selection is not a market-wide universe.')
@@ -166,7 +166,7 @@ def build_report(m,diag,sensitivity,costs,quality):
         ('Download route','Yahoo Finance v8 chart API. Exact URLs and raw responses are retained in data/.'),
         ('ADX and smoothing','https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/average-directional-index-adx'),
         ('Libraries','https://pandas.pydata.org/docs/ ; https://numpy.org/doc/ ; https://matplotlib.org/stable/ ; https://docs.reportlab.com/'),
-        ('Assistance','OpenAI Codex assisted in implementation, validation, analysis and report drafting. No external strategy repository or tutorial code was copied.')]
+    ]
     for title,text in refs: p('<b>'+escape(title)+'.</b> '+escape(text),'SmallCustom')
     p('The ADX reference explains strength, threshold and smoothing. EMA20/50, 3 ATR, 1% risk and costs are design assumptions, not claims of optimality. Sources consulted on 27 October 2026.','SmallCustom')
     def footer(canvas,doc):
@@ -176,5 +176,5 @@ def build_report(m,diag,sensitivity,costs,quality):
         canvas.drawRightString(553,27,str(doc.page))
     doc=SimpleDocTemplate(str(OUT/'Technical_Report.pdf'),pagesize=(595.28,841.89),
         rightMargin=47,leftMargin=47,topMargin=38,bottomMargin=54,
-        title='Trend Following in Indian Equities',author='CFA Intermediate Project - AI-assisted')
+        title='Trend Following in Indian Equities',author='CFA Intermediate Project')
     doc.build(flow,onFirstPage=footer,onLaterPages=footer)

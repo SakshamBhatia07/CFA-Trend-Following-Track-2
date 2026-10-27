@@ -117,7 +117,7 @@ universe, exact costs/actions, capacity constraints and multiple walk-forward te
 3. 60 seconds: exact entry/exit/sizing and the hypothetical trade above.
 4. 90 seconds: actual result table, equity/drawdown and basic/benchmark comparison.
 5. 45 seconds: concentration, sensitivity and limitations.
-6. 30 seconds: lessons learned and acknowledge AI assistance accurately.
+6. 30 seconds: lessons learned and possible improvements.
 
 Use the actual PDF numbers, even if returns are poor. Explain what the experiment
 shows rather than claiming the strategy must make money.

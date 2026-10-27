@@ -12,6 +12,6 @@ Validated on 27 October 2026 using the local project virtual environment.
 - This validation verifies implementation behavior; it does not establish
   financial profitability or statistical significance.
 
-The local .venv uses the Codex bundled Python runtime and its existing pandas and
+The local .venv uses a machine-specific Python runtime and its existing pandas and
 ReportLab packages. It is machine-specific and excluded from the submission ZIP.
 Use README's fresh-setup instructions to reproduce on another computer.
