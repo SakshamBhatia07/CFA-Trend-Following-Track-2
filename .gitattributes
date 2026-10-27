@@ -1,0 +1,13 @@
+# Keep source text consistent across Windows, macOS and Linux.
+* text=auto eol=lf
+
+# Never normalize binary deliverables.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+
+# Preserve the exact data snapshot bytes recorded in manifest.json.
+data/*.csv -text
+data/*_source.json -text

@@ -1,0 +1,66 @@
+{
+  "INFY": {
+    "raw_rows": 2224,
+    "clean_rows": 2224,
+    "duplicates": 0,
+    "missing_by_column": {
+      "Open": 0,
+      "High": 0,
+      "Low": 0,
+      "Close": 0,
+      "Volume": 0,
+      "AdjClose": 0
+    },
+    "invalid_rows": 0,
+    "zero_volume_rows": 1,
+    "first_date": "2017-01-02",
+    "last_date": "2025-12-31",
+    "excluded_noncommon_dates": [
+      "2018-01-01",
+      "2019-01-01",
+      "2019-10-27",
+      "2020-11-14"
+    ]
+  },
+  "TCS": {
+    "raw_rows": 2224,
+    "clean_rows": 2224,
+    "duplicates": 0,
+    "missing_by_column": {
+      "Open": 0,
+      "High": 0,
+      "Low": 0,
+      "Close": 0,
+      "Volume": 0,
+      "AdjClose": 0
+    },
+    "invalid_rows": 0,
+    "zero_volume_rows": 1,
+    "first_date": "2017-01-02",
+    "last_date": "2025-12-31",
+    "excluded_noncommon_dates": [
+      "2018-01-01",
+      "2019-01-01",
+      "2019-10-27",
+      "2020-11-14"
+    ]
+  },
+  "NIFTY": {
+    "raw_rows": 2224,
+    "clean_rows": 2220,
+    "duplicates": 0,
+    "missing_by_column": {
+      "Open": 4,
+      "High": 4,
+      "Low": 4,
+      "Close": 4,
+      "Volume": 4,
+      "AdjClose": 4
+    },
+    "invalid_rows": 0,
+    "zero_volume_rows": 28,
+    "first_date": "2017-01-02",
+    "last_date": "2025-12-31",
+    "excluded_noncommon_dates": []
+  }
+}

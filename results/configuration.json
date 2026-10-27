@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "fast": 20,
+    "slow": 50,
+    "length": 14,
+    "adx_min": 25.0,
+    "atr_multiple": 3.0,
+    "risk": 0.01,
+    "allocation": 0.95,
+    "fee": 0.0015,
+    "slippage": 0.0005,
+    "capital": 100000.0
+  },
+  "periods": {
+    "Development": [
+      "2018-01-01",
+      "2022-12-31"
+    ],
+    "Test": [
+      "2023-01-01",
+      "2025-12-31"
+    ]
+  },
+  "selection": "Fixed before evaluation; sensitivity grid is development-only.",
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "pandas": "3.0.1",
+  "matplotlib": "3.11.2"
+}
