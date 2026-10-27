@@ -123,3 +123,55 @@ TCS EMA + ADX returned -3.97%, versus 1.20% for EMA only and 6.96% for buy-and-h
 The filter therefore did not improve results consistently across stocks.
 The strategy held substantial cash; low drawdown is not proof of an edge.
 Use the generated report/CSV for full precision and all development results.
+
+## Financial metrics and indicators calculated
+
+The main metrics are in `results/performance_metrics.csv`, separately for each
+stock, strategy and development/test period. Returns are stored as decimals:
+`0.014139` means approximately 1.41%. Profit/loss amounts are in INR.
+
+| Metric | CSV field | Meaning and calculation |
+|---|---|---|
+| Cumulative return | `cumulative_return` | Total growth: ending equity / initial capital - 1. |
+| Annualized compounded return (CAGR-style) | `annualized_return` | `(ending equity / initial capital) ** (252 / N) - 1`, where N is the number of evaluated sessions. Uses trading years of 252 sessions, not exact elapsed calendar years. |
+| Sharpe ratio | `sharpe` | `sqrt(252) * mean(daily returns) / sample standard deviation(daily returns)`. Measures return relative to total daily variability; assumed risk-free rate is 0%. |
+| Sortino ratio | `sortino` | `sqrt(252) * mean(daily returns) / sqrt(mean(min(daily return, 0)^2))`. Uses downside variation across all sessions and a zero target return. |
+| Maximum drawdown | `max_drawdown` | Worst equity / running peak - 1, with initial capital included in the peak calculation. Reported as a negative percentage. |
+| Completed trades | `trades` | Number of closed positions, including final-period liquidation. |
+| Win rate | `win_rate` | Number of trades with positive net P&L / all completed trades. Break-even trades are not wins. |
+| Profit factor | `profit_factor` | Sum of positive trade P&L / absolute sum of negative trade P&L. |
+| Average profit | `average_profit` | Mean net P&L of winning trades only. |
+| Average loss | `average_loss` | Mean net P&L of losing trades only; negative INR value. |
+| Maximum profit | `maximum_profit` | Largest winning trade's net P&L. |
+| Maximum loss | `maximum_loss` | Most negative losing trade's net P&L. |
+| Net profit / P&L | `net_profit` | Sum of completed trade P&L; equals ending equity minus initial capital after final liquidation. |
+| Benchmark returns | Rows named `Buy & hold` and `Nifty 50 price` | Same-stock adjusted buy-and-hold after costs, plus gross Nifty price-index return. Each has return, Sharpe, Sortino and drawdown metrics; trade statistics are not calculated for benchmark rows. |
+
+Daily returns use closing account equity, including cash. The first session's
+return is measured against the initial INR 100,000. Strategy results include
+modelled fees and slippage; idle cash earns zero. Undefined ratios or absent
+winning/losing groups appear as N/A in the report and empty cells/NaN in CSV output.
+Profit factor is N/A if there are no losing trades, rather than reported as infinity.
+
+### Indicators used to make trading decisions
+
+These are signal/risk inputs, distinct from performance metrics:
+
+- **EMA (Exponential Moving Average):** 20-session and 50-session averages of
+  adjusted closing prices. EMA20 > EMA50 defines the bullish regime.
+- **ATR (Average True Range):** 14-session Wilder-smoothed true range. Used for
+  position sizing and the 3-ATR stop distance; expressed in adjusted price units.
+- **ADX (Average Directional Index):** 14-session Wilder-smoothed trend-strength
+  indicator. ADX >= 25 confirms an entry; EMA supplies direction.
+
+### Additional diagnostics
+
+`results/trade_diagnostics.csv` reports the fraction of sessions with any exposure
+(not average capital invested), mean holding sessions, entry lag since the bullish
+EMA regime began, longest consecutive losing-trade streak, top-three winners as a
+share of gross winning P&L, and mean peak-close giveback at exit. Giveback is a
+retrospective proxy and may include an exit-day close after an opening exit.
+
+Other files contain compounded test-year returns, additive P&L by prior-close
+indicator-defined regime, development parameter sensitivity and test cost stress.
+Beta, CAPM alpha, Calmar ratio and Value at Risk are not calculated in this project.
